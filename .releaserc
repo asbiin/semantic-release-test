@@ -17,6 +17,12 @@
       }
     ],
     [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
       "@semantic-release/release-notes-generator", {
         "preset": "angular",
         "parserOpts": {
@@ -28,11 +34,11 @@
       }
     ],
     [
-      "@semantic-release/github",
-    ],
-    [
-      "@semantic-release/exec", {
+      "@semantic-release/git",
+      {
+        "assets": ["CHANGELOG.md"]
       }
-    ]
+    ],
+    "@semantic-release/github"
   ]
 }
