@@ -17,12 +17,6 @@
       }
     ],
     [
-      "@semantic-release/changelog",
-      {
-        "changelogFile": "CHANGELOG.md"
-      }
-    ],
-    [
       "@semantic-release/release-notes-generator", {
         "preset": "angular",
         "parserOpts": {
@@ -31,6 +25,12 @@
         "writerOpts": {
           "commitsSort": ["scope"]
         }
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
       }
     ],
     [
