@@ -1,3 +1,5 @@
+new
+
 # [2.2.0](https://github.com/asbiin/semantic-release-test/compare/v2.1.0...v2.2.0) (2021-01-10)
 
 
