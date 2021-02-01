@@ -35,6 +35,11 @@
       {
         "assets": ["CHANGELOG.md"]
       }
+    ],
+    [
+      "@semantic-release/exec", {
+        "successCmd": "./commit-changelog.sh"
+      }
     ]
   ]
 }
