@@ -3,6 +3,7 @@
 repo=asbiin/semantic-release-test
 base=master
 file=CHANGELOG.md
+label=auto-squash
 
 newbranch=$(date +"%Y-%m-%d")-update-changelog
 
@@ -17,6 +18,7 @@ github() {
         https://api.github.com/repos/$repo/$apiurl \
         "$@"
 }
+
 
 # Test if branch already exists"
 test=$(github GET git/ref/heads/$newbranch -f 2> /dev/null)
@@ -44,8 +46,7 @@ github PUT contents/$file \
 pr=$(github POST pulls -d "{\"head\":\"$newbranch\",\"base\":\"$base\",\"title\":\"$message\"}")
 
 number=$(echo $pr | jq '.number')
-
-github PUT issues/$number/labels -d "['auto-merge']" > /dev/null
+github POST issues/$number/labels -d "{\"labels\":[\"$label\"]}" > /dev/null
 
 echo "Pull Request created:"
 echo $pr | jq '.html_url'
