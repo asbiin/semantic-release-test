@@ -2,53 +2,50 @@
 
 repo=asbiin/semantic-release-test
 base=master
+file=CHANGELOG.md
 
 newbranch=$(date +"%Y-%m-%d")-update-changelog
 
-content=$(base64 -w 0 CHANGELOG.md)
+github() {
+    method=$1
+    apiurl=$2
+    shift;shift;
+    curl -sSL \
+        -X $method \
+        -H "Accept: application/vnd.github.v3+json" \
+        -H "Authorization: token $GITHUB_TOKEN" \
+        https://api.github.com/repos/$repo/$apiurl \
+        "$@"
+}
 
-# Test if branch already exists
-test=$(curl -fsSL \
-  -H "Accept: application/vnd.github.v3+json" \
-  -H "Authorization: token $GITHUB_TOKEN" \
-  https://api.github.com/repos/$repo/git/ref/heads/$newbranch 2> /dev/null)
+# Test if branch already exists"
+test=$(github GET git/ref/heads/$newbranch -f 2> /dev/null)
 
 if [ $? = 0 ]; then
   # Delete previous branch
-  curl -sSL \
-    -X DELETE \
-    -H "Accept: application/vnd.github.v3+json" \
-    -H "Authorization: token $GITHUB_TOKEN" \
-    https://api.github.com/repos/$repo/git/refs/heads/$newbranch > /dev/null
+  github DELETE git/refs/heads/$newbranch > /dev/null
 fi
 
-# Create a new branch
-curl -sSL \
-  -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  -H "Authorization: token $GITHUB_TOKEN" \
-  https://api.github.com/repos/$repo/git/refs \
-  -d "{\"ref\":\"refs/heads/$newbranch\",\"sha\":\"$GITHUB_SHA\"}" > /dev/null
+set -e
 
-# Get changelog sha
-sha=$(curl -sSL \
-  -H "Accept: application/vnd.github.v3+json" \
-  -H "Authorization: token $GITHUB_TOKEN" \
-  https://api.github.com/repos/$repo/contents/CHANGELOG.md \
-  | jq '.sha')
+echo "Create a new branch: $newbranch"
+github POST git/refs -d "{\"ref\":\"refs/heads/$newbranch\",\"sha\":\"$GITHUB_SHA\"}" > /dev/null
 
-# Upload file content
-curl -sSL \
-  -X PUT \
-  -H "Accept: application/vnd.github.v3+json" \
-  -H "Authorization: token $GITHUB_TOKEN" \
-  https://api.github.com/repos/$repo/contents/CHANGELOG.md \
-  -d "{\"message\":\"chore(changelog): Update Changelog\",\"sha\":$sha,\"branch\":\"$newbranch\",\"content\":\"$content\"}" > /dev/null
+# Get current file's sha
+sha=$(github GET "contents/$file?ref=$newbranch" | jq '.sha')
+
+echo "Upload new file content"
+message="chore(changelog): Update Changelog"
+content=$(base64 -w 0 $file)
+github PUT contents/$file \
+    -d "{\"message\":\"$message\",\"sha\":$sha,\"branch\":\"$newbranch\",\"content\":\"$content\"}" > /dev/null
 
 # Create a pull request
-curl \
-  -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  -H "Authorization: token $GITHUB_TOKEN" \
-  https://api.github.com/repos/$repo/pulls \
-  -d "{\"head\":\"$newbranch\",\"base\":\"$base\",\"title\":\"chore(changelog): Update Changelog\"}" > /dev/null
+pr=$(github POST pulls -d "{\"head\":\"$newbranch\",\"base\":\"$base\",\"title\":\"$message\"}")
+
+number=$(echo $pr | jq '.number')
+
+github PUT issues/$number/labels -d "['auto-merge']" > /dev/null
+
+echo "Pull Request created:"
+echo $pr | jq '.html_url'
