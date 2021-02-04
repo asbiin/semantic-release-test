@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - next
+      - next-major
+      - beta
+      - alpha
+
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN_RELEASE }}
+        with:
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/exec
