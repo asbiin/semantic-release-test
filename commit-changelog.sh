@@ -6,13 +6,15 @@ if [ -z "${GH_TOKEN_RELEASE:-}" ]; then
     exit 1
 fi
 
+version=$1
+
 set -Euo pipefail
 
 base=master
 file=CHANGELOG.md
 label=auto-squash
 
-newbranch=$(date +"%Y-%m-%d")-update-changelog
+newbranch=changelog-$version-$(date +"%Y-%m-%d")
 
 github() {
     method=$1
@@ -44,7 +46,7 @@ github POST git/refs -d "{\"ref\":\"refs/heads/$newbranch\",\"sha\":\"$GITHUB_SH
 sha=$(github GET "contents/$file?ref=$newbranch" | jq '.sha')
 
 echo "Upload new file content"
-message="chore(changelog): update changelog"
+message="chore(changelog): update changelog for $version"
 content=$(base64 -w 0 $file)
 github PUT contents/$file \
     -d "{\"message\":\"$message\",\"sha\":$sha,\"branch\":\"$newbranch\",\"content\":\"$content\"}" > /dev/null

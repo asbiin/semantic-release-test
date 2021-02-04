@@ -34,7 +34,7 @@
     ],
     [
       "@semantic-release/exec", {
-        "successCmd": "./commit-changelog.sh"
+        "successCmd": "./commit-changelog.sh ${nextRelease.version}"
       }
     ]
   ]
