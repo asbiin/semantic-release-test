@@ -1,8 +1,3 @@
 # semantic-release-test
 
-it works
-
-big change
-this
-
-bla bla
+new
