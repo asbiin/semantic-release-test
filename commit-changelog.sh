@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# GH_TOKEN is mandatory to be able to trigger the Pull Request workflows
-if [ -z "${GH_TOKEN:-}" ]; then
-    echo "Please provide a token in GH_TOKEN variable" >&2
+# GH_TOKEN_RELEASE is mandatory to be able to trigger the Pull Request workflows
+if [ -z "${GH_TOKEN_RELEASE:-}" ]; then
+    echo "Please provide a token in GH_TOKEN_RELEASE variable" >&2
     exit 1
 fi
 
@@ -21,7 +21,7 @@ github() {
     curl -sSL \
         -X $method \
         -H "Accept: application/vnd.github.v3+json" \
-        -H "Authorization: token $GH_TOKEN" \
+        -H "Authorization: token $GH_TOKEN_RELEASE" \
         https://api.github.com/repos/$GITHUB_REPOSITORY/$apiurl \
         "$@"
 }
