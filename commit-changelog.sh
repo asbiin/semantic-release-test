@@ -8,7 +8,6 @@ fi
 
 set -Euo pipefail
 
-repo=$GITHUB_REPOSITORY
 base=master
 file=CHANGELOG.md
 label=auto-squash
@@ -23,7 +22,7 @@ github() {
         -X $method \
         -H "Accept: application/vnd.github.v3+json" \
         -H "Authorization: token $GH_TOKEN" \
-        https://api.github.com/repos/$repo/$apiurl \
+        https://api.github.com/repos/$GITHUB_REPOSITORY/$apiurl \
         "$@"
 }
 
