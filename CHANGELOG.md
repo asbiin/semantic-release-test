@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/asbiin/semantic-release-test/compare/v2.6.0...v2.6.1) (2021-02-04)
+
+
+### Bug Fixes
+
+* fix build package ([#31](https://github.com/asbiin/semantic-release-test/issues/31)) ([f816c52](https://github.com/asbiin/semantic-release-test/commit/f816c52231cb2e058ab1341c7abe75a356245406))
+
 ## [2.4.1](https://github.com/asbiin/semantic-release-test/compare/v2.4.0...v2.4.1) (2021-02-04)
 
 
