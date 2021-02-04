@@ -17,7 +17,7 @@ git log --pretty="%h" -n1 HEAD | tee .release
 git log --pretty="%H" -n1 HEAD | tee .commit
 
 # PACKAGE
-package=semantic-release-$version
+package=semantic-release-test-$version
 mkdir -p $package
 ln -s $SELF_PATH/CHANGELOG.md $package/
 ln -s $SELF_PATH/README.md $package/
