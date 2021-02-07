@@ -33,8 +33,9 @@
       }
     ],
     [
-      "@semantic-release/exec", {
-        "successCmd": "./commit-changelog.sh ${nextRelease.version}"
+      "semantic-github-pullrequest", {
+        "assets": ["CHANGELOG.md"],
+        "baseRef": "master"
       }
     ]
   ]
