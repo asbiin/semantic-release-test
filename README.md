@@ -1,3 +1,3 @@
 # semantic-release-test
 
-last feat
+feat
