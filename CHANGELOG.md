@@ -5,6 +5,13 @@
 
 * new awesome feature ([044e548](https://github.com/asbiin/semantic-release-test/commit/044e5483f69c7d1537ffc10811844f05f3f14c53))
 
+# [2.9.0](https://github.com/asbiin/semantic-release-test/compare/v2.8.0...v2.9.0) (2021-02-07)
+
+
+### Features
+
+* great work ([#40](https://github.com/asbiin/semantic-release-test/issues/40)) ([cf3d837](https://github.com/asbiin/semantic-release-test/commit/cf3d837118e88096b8f1201eab5af38cadc28597))
+
 # [2.8.0](https://github.com/asbiin/semantic-release-test/compare/v2.7.0...v2.8.0) (2021-02-07)
 
 
