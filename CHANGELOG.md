@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/asbiin/semantic-release-test/compare/v2.10.0...v2.11.0) (2021-04-29)
+
+
+### Features
+
+* change ([#43](https://github.com/asbiin/semantic-release-test/issues/43)) ([5583c3f](https://github.com/asbiin/semantic-release-test/commit/5583c3fbbbeb15afc93294eb9a89abace44423c2))
+
 # [2.10.0](https://github.com/asbiin/semantic-release-test/compare/v2.9.0...v2.10.0) (2021-02-07)
 
 
