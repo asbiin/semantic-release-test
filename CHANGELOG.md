@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/asbiin/semantic-release-test/compare/v4.0.0...v5.0.0) (2021-04-30)
+
+
+### Code Refactoring
+
+* change ([dd2c42f](https://github.com/asbiin/semantic-release-test/commit/dd2c42f1bed137e2ff98afa2ad16040401d32de8))
+
+
+### BREAKING CHANGES
+
+* this is a breaking change
+
 # [3.0.0](https://github.com/asbiin/semantic-release-test/compare/v2.11.0...v3.0.0) (2021-04-29)
 
 
