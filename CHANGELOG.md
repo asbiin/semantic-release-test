@@ -27,7 +27,6 @@
 * This is a change
 * This is another change
 
-
 # [3.0.0](https://github.com/asbiin/semantic-release-test/compare/v2.11.0...v3.0.0) (2021-04-29)
 
 
