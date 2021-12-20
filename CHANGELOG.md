@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/asbiin/semantic-release-test/compare/v5.1.0...v5.2.0) (2021-12-20)
+
+
+### Features
+
+* feat ([700a961](https://github.com/asbiin/semantic-release-test/commit/700a961a887f99312f17722f6c21d2a6d5dc5498))
+
 # [3.0.0](https://github.com/asbiin/semantic-release-test/compare/v2.11.0...v3.0.0) (2021-04-29)
 
 
