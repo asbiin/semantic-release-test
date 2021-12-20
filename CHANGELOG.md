@@ -18,6 +18,7 @@
 
 # [4.0.0](https://github.com/asbiin/semantic-release-test/compare/v3.0.0...v4.0.0) (2021-04-29)
 
+
 ### Features
 
 * change ([#47](https://github.com/asbiin/semantic-release-test/issues/47)) ([90e354c](https://github.com/asbiin/semantic-release-test/commit/90e354c227c9a0ead87aa37889cebcb8356557fe))
