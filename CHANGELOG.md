@@ -1,9 +1,32 @@
 # [5.2.0](https://github.com/asbiin/semantic-release-test/compare/v5.1.0...v5.2.0) (2021-12-20)
 
-
 ### Features
 
 * feat ([700a961](https://github.com/asbiin/semantic-release-test/commit/700a961a887f99312f17722f6c21d2a6d5dc5498))
+
+
+# [5.0.0](https://github.com/asbiin/semantic-release-test/compare/v4.0.0...v5.0.0) (2021-04-30)
+
+### Code Refactoring
+
+* change ([dd2c42f](https://github.com/asbiin/semantic-release-test/commit/dd2c42f1bed137e2ff98afa2ad16040401d32de8))
+
+### BREAKING CHANGES
+
+* this is a breaking change
+
+
+# [4.0.0](https://github.com/asbiin/semantic-release-test/compare/v3.0.0...v4.0.0) (2021-04-29)
+
+### Features
+
+* change ([#47](https://github.com/asbiin/semantic-release-test/issues/47)) ([90e354c](https://github.com/asbiin/semantic-release-test/commit/90e354c227c9a0ead87aa37889cebcb8356557fe))
+
+### BREAKING CHANGES
+
+* This is a change
+* This is another change
+
 
 # [3.0.0](https://github.com/asbiin/semantic-release-test/compare/v2.11.0...v3.0.0) (2021-04-29)
 
