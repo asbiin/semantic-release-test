@@ -43,7 +43,7 @@ jobs:
 
       - name: New release published
         if: steps.semantic.outputs.new_release_published == 'true'
-        run: echo "### New release: ${{ steps.semantic.outputs.new_release_version }} :rocket:" >> $GITHUB_STEP_SUMMARY
+        run: echo "### Release ${{ steps.semantic.outputs.new_release_version }} :rocket:" >> $GITHUB_STEP_SUMMARY
 
       - name: Store changelog file
         if: steps.semantic.outputs.new_release_published == 'true'
