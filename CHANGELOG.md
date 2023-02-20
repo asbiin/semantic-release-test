@@ -1,3 +1,15 @@
+# [5.3.0](https://github.com/asbiin/semantic-release-test/compare/v5.2.0...v5.3.0) (2022-10-18)
+
+
+### Bug Fixes
+
+* fix workflow ([16bf3d6](https://github.com/asbiin/semantic-release-test/commit/16bf3d610037983ce67ffd9ad083d009e0265a83))
+
+
+### Features
+
+* new test ([a67e7d1](https://github.com/asbiin/semantic-release-test/commit/a67e7d18b9efe22cce4f5ca75db2a4c2b787705d))
+
 # [5.2.0](https://github.com/asbiin/semantic-release-test/compare/v5.1.0...v5.2.0) (2021-12-20)
 
 ### Features
